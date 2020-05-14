@@ -1,0 +1,24 @@
+<table class="table table-bordered table-sm" *ngIf="users?.length !== 0">
+  <thead>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>#</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.name}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.phone}}</td>
+      <td>
+        <button class="btn btn-xs btn-danger" (click)="delete(user.id)">Delete</button>
+        <button class="btn btn-xs btn-info ml-1" (click)="edit(user)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="text-center" *ngIf="users?.length === 0">
+  Add Item
+</div>

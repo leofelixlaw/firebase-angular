@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'firebase-angular';
+  @Output() parrentMessage: EventEmitter<any> = new EventEmitter();
+  userItem: any;
+
+  onUserMessage($event){
+    this.userItem = $event;
+    this.parrentMessage.emit($event);
+  }
 }
